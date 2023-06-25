@@ -2,7 +2,7 @@
 
 Kindly create following variables:
 
-REACT_APP_LOCATION_API_TENANT
+REACT_APP_LOCATION_API_TENANT, 
 REACT_APP_LOCATION_API_TOKEN
 
 # Getting Started with Create React App
