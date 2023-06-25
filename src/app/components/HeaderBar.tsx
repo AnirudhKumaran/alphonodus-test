@@ -18,18 +18,16 @@ export function HeaderBar(props:HeaderProps){
 
     const { setLocations } = actionDispatch(useDispatch());
 
-    const fetchAnimePage = async () => {
-        const animePage = await LocationAPI.getAllLocations().catch((err) => {
+    const fetchLocationPage = async () => {
+        const locationPage = await LocationAPI.getAllLocations().catch((err) => {
             console.log("Error i am here: ", err)
         });
-
-        console.log("Headerbar action: ",animePage)
-        if(animePage) setLocations(Object.values(animePage))
+        if(locationPage) setLocations(Object.values(locationPage))
     }
 
     return (
         <div className="row my-2">
-            <div className="col-2 d-flex justify-content-center"> <button type="button" onClick={fetchAnimePage} className="btn btn-primary">&#10227;</button> </div>
+            <div className="col-2 d-flex justify-content-center"> <button type="button" onClick={fetchLocationPage} className="btn btn-primary">&#10227;</button> </div>
             <div className="col-8 d-flex justify-content-center align-items-center"> <h3>Locations</h3> </div>
             <div className="col-2 d-flex justify-content-center"> <button type="button" onClick={() => props.resetForm({})} className="btn btn-success">&#43;</button> </div>
         </div>

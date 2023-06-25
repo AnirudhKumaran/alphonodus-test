@@ -43,8 +43,6 @@ export default (state: LocationState = initialState,action: LocationAction) : Lo
             let filterType = action.payload.filterVal
             let tempLocations = state.locationCopy
             let filterLocation:ILocation[] = []
-            
-            console.log("current state",state)
 
             if(filterType=="active"){
                 filterLocation = tempLocations.filter((loc) => {return (loc.status && loc.status.toLowerCase()==="active")})
@@ -65,7 +63,6 @@ export default (state: LocationState = initialState,action: LocationAction) : Lo
             return {...state,locations:filterLocation}
 
         case actionTypes.SET_LOCATION_ID:
-            console.log("loc payload",action.payload)
             let idSelected = action.payload
             return {...state,selectedId:idSelected}
 

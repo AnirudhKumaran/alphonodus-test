@@ -90,7 +90,7 @@ export function DetailsForm(props:formProps){
             console.log("Create Error: ", err)
         }).then(()=>{
             setCreateDisabled(false)
-            setBoxMessage("Updated Successfully!")
+            setBoxMessage("Created Successfully!")
             setBoxDisplay(true)
             setTimeout(function() {
                 setBoxDisplay(false)
@@ -122,6 +122,9 @@ export function DetailsForm(props:formProps){
             setDeleteDisabled(false)
             setBoxMessage("Deleted Successfully!")
             setBoxDisplay(true)
+            setTimeout(function() {
+                setBoxDisplay(false)
+            }, 3000);
         })
 
         setFormState(

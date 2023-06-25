@@ -51,20 +51,20 @@ export function LocationListView(props:listProps) {
         return (<div></div>)
 
     return <LocationContainer>
-        {locationList && locationList.locations.map((anime:any) => (
-            <LocationItemContainer onClick={() => sendLocationId(anime.id)} className="shadow bg-light rounded">
+        {locationList && locationList.locations.map((location:any) => (
+            <LocationItemContainer key={location.id} onClick={() => sendLocationId(location.id)} className="shadow bg-light rounded">
                 <div className="row w-100">
-                    <div className="col-8 text-left">{anime.name || "Unknow User"} | {anime?.alias || "No Alias"}</div>
+                    <div className="col-8 text-left">{location.name || "Unknow User"} | {location?.alias || "No Alias"}</div>
                     <div className="col-4 text-right">
-                        <span className="badge badge-pill badge-primary">{anime?.status || "NA"}</span>
+                        <span className="badge badge-pill badge-primary">{location?.status || "NA"}</span>
                     </div>
                 </div>
                 <div className="row w-100">
-                    <div className="col-8 text-left">{ anime?.address || "No Address Registered"}</div>
+                    <div className="col-8 text-left">{ location?.address || "No Address Registered"}</div>
                 </div>
                 <div className="row w-100">
-                    <div className="col-8 text-left">{ lasteUpdatedValue(anime?.updatedAt) || "No Value Registered" }</div>
-                    <div className="col-4 text-right">{ lastUpdateHours(anime?.updatedAt) || "0" }h</div>
+                    <div className="col-8 text-left">{ lasteUpdatedValue(location?.updatedAt) || "No Value Registered" }</div>
+                    <div className="col-4 text-right">{ lastUpdateHours(location?.updatedAt) || "0" }h</div>
                 </div>
             </LocationItemContainer>
         ))}

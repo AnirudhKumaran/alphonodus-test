@@ -53,7 +53,7 @@ class LocationAPIService {
         try {
 
             const response = await apolloClient.query({ query: GET_LOCATION, variables: { locationReadId, tenant }})
-            console.log("direct call",response)
+            
             if(!response || !response.data)
                 throw new Error("Cannot get location list")
 

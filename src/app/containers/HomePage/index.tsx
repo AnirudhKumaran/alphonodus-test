@@ -50,17 +50,16 @@ export function HomePage(props: IHomePageProps) {
 
     const { setLocations,resetLocation } = actionDispatch(useDispatch());
 
-    const fetchAnimePage = async () => {
-        const animePage = await LocationAPI.getAllLocations().catch((err) => {
+    const locationPageFetch = async () => {
+        const locationPage = await LocationAPI.getAllLocations().catch((err) => {
             console.log("Error i am here: ", err)
         });
 
-        console.log("Location list: ",animePage)
-        if(animePage) setLocations(Object.values(animePage))
+        if(locationPage) setLocations(Object.values(locationPage))
     }
 
     useEffect(() => {
-        fetchAnimePage();
+        locationPageFetch();
     },[]);
 
     const [passSelectedId , setPassSelectedId] = useState("");
